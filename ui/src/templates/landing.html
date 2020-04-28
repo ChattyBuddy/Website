@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chatty Buddy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="tab">
+  <button class="tablinks" onclick="openTab(event, 'KVP')" id="defaultOpen">Welcome</button>
+  <button class="tablinks" onclick="openTab(event, 'CTA')">Pre-Register</button>
+  <button class="tablinks" onclick="openTab(event, 'About')">About Us</button>
+  <button class="tablinks" onclick="openTab(event, 'Bot')">Beta</button>
+</div>
+
+<div id="KVP" class="tabcontent">
+  <h1>Need a study buddy?</h1>
+  <h2>Chatty Buddy makes your learning experience more<br><b><i>FUN, INTERACTIVE, and EFFICIENT</i></b></h2>
+    <section class='land'>
+    <aside>
+      <h3>Get the information you need,<br>when you need it</h3>
+      <p>Ask Chatty Buddy any question you would like about your course and it would pull up that material in no time. No more browsing several online posts or tutorials for a simple concept you forgot!</p>
+    </aside>
+    <aside>
+      <h3>Work smarter,<br>not harder</h3>
+      <p>Whether it's homework, quizzes, or presentation, Chatty Buddy's got you covered. Why bother spending time gathering materials to learn when you can be spending time learning? Let Chit Chat compile learning materials for you!</p>
+    </aside>
+    </section>
+</div>
+
+<div id="CTA" class="tabcontent">
+  <h1>Register Today</h1>
+  <h2>To receive the latest update on the development of this state-of-art study-aid chatbot. We will be surveying requested features and you can help make <i>YOUR</i> learning experience better!</h2>
+  <div class="form">
+    <form class="register-form" action="/signup" method="GET">
+      <input type="text" placeholder="First Name" id="fname_id" name="fname"/>
+      <input type="text" placeholder="Last Name" id="lname_id" name="lname"/>
+      <input type="text" placeholder="Email" id="email_id" name="email"/>
+      <button>Sign me up!</button>
+    </form>
+  </div>
+</div>
+
+<div id="About" class="tabcontent">
+  <h1>Meet our team:</h1>
+  <h2>We met in ECE 140B in UC San Diego and decided to revolutionize college learning experience. After taking many many classes, we all agreed that we felt like we were not learning in the most efficient way possible. Therefore, we want to create something that can ensure everyone gets the most out of their classes.</h2>
+  <section class='grid'>
+    <aside>
+      <h3>Po Hsiang Huang</h3>
+      <p>
+        <a href="https://www.linkedin.com/in/phh0716/" target="_blank">
+          <img src="profile_pic/Po.png" alt="Po" width="300" height="300"><br>
+        </a>
+        Cofounder<br><br>
+        Po is a junior Electrical Engineer with a focus in Machine Learning at UCSD. He has worked hard to build up his technical skills and wants to apply them to help better people's lives. In his free time, he likes to play board games, watch shows, and catch up on the sleep he never gets.
+      </p>
+    </aside>
+    <aside>
+      <h3>Tommy Man</h3>
+      <p>
+        <a href="https://www.linkedin.com/in/phh0716/" target="_blank">
+          <img src="profile_pic/Tommy.png" alt="Po" width="300" height="300"><br>
+        </a>
+        Cofounder<br><br>
+        Tommy is a junior Electrical Engineer with a focus in Machine Learning at UCSD.In addition to interest in programming and robotics, he also enjoys outdoor activities and watching sitcoms.
+      </p>
+    </aside>
+    <aside>
+      <h3>Jerry Chen</h3>
+      <p>
+        <a href="https://www.linkedin.com/in/phh0716/" target="_blank">
+          <img src="profile_pic/Jerry.png" alt="Po" width="300" height="300"><br>
+        </a>
+        Cofounder<br><br>
+        Jerry is a senior Electrical Engineer with a Computer Systems and Data Communications focus at UCSD. Aside from designing and writing programs, and building circuits, he likes to play chess and run on treadmills.
+      </p>
+    </aside>
+    <aside>
+      <h3>Ashwin Ganesh</h3>
+      <p>
+        <a href="https://www.linkedin.com/in/phh0716/" target="_blank">
+          <img src="profile_pic/Ashwin.png" alt="Po" width="300" height="300"><br>
+        </a>
+        Cofounder<br><br>
+        Ashwin is a senior Electrical Engineer with a Computer Design focus at UCSD. Amidst solving interesting computer science challenges, he enjoys playing basketball, snorkeling with leopard sharks and learning to surf.
+      </p>
+    </aside>
+  </section>
+  <p class="email">Questions or concerns? Email chattybuddy@ucsd.edu</p>
+</div>
+
+<div id="Bot" class="tabcontent">
+  <h1>In beta testing</h1>
+  <aside>
+    <h3>Dialogue</h3>
+    <p>How can I help you today?</p>
+  </aside>
+</div>
+
+<script>
+  // Navigate through each tab
+  function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+
+  // Get the element with id="defaultOpen" and click on it
+  document.getElementById("defaultOpen").click();
+</script>
+
+</body>
+</html>

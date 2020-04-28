@@ -1,0 +1,158 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+body {
+  background: #76b852; /* fallback for old browsers */
+  background: -webkit-linear-gradient(right, #76b852, #8DC26F);
+  background: -moz-linear-gradient(right, #76b852, #8DC26F);
+  background: -o-linear-gradient(right, #76b852, #8DC26F);
+  background: linear-gradient(to left, #76b852, #8DC26F);
+  font-family: "Roboto", sans-serif;
+  font-size: calc(1rem + 1.5vw);
+  padding: 1rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  text-align: center;
+  font-size: calc(3rem + 1.5vw);
+  color: #f2f2f2;
+}
+h2 {
+  text-align: center;
+  font-size: calc(1rem + 1.5vw);
+  color: #f2f2f2;
+}
+h3 {
+  text-align: center;
+  font-size: calc(0.5rem + 1.5vw);
+}
+p {
+  text-align: center;
+  font-size: calc(0.5rem + 1vw);
+}
+p.email {
+  color: #f2f2f2;
+}
+
+img {
+  border-radius: 50%;
+}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  background-color: #4CAF50;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  color: #f2f2f2;
+  font-size: calc(0.5rem + 1vw);
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 1rem 3rem;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #43A047;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #43A047;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 1rem;
+  border-top: none;
+}
+
+.form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.form button {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #ffffff;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.form button:hover,.form button:active,.form button:focus {
+  background: #43A047;
+}
+
+aside {
+  background: #f2f2f2;
+  padding: 0.5rem;
+  margin-bottom:0.5rem;
+  box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.2), 0 10px 10px 0 rgba(0, 0, 0, 0.24);
+}
+
+section.land {
+  display: grid;
+  padding: 2rem;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1.5rem;
+}
+
+section.land aside {
+  background: #4CAF50;
+  padding: 0rem 0.5rem 3rem 0.5rem;
+}
+
+section.land aside h3 {
+  color: #f2f2f2;
+  padding: 0rem;
+}
+
+section.land aside p {
+  color: #f2f2f2;
+}
+
+section.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1.5rem;
+}
+
+@media all and (min-width: 1024px) {
+  section.grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
