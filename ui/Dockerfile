@@ -7,4 +7,4 @@ RUN pip install -r /tmp/requirements.txt
 WORKDIR /app
 
 EXPOSE 5000
-CMD python web_server.py
+CMD python -u web_server.py
