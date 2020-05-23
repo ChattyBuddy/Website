@@ -44,11 +44,31 @@ def signup(req):
   return Response('SUCCESS')
 
 
+def getUsers(req):
+  db = mysql.connect(host=db_host, database=db_name, user=db_user, passwd=db_pass)
+  cursor = db.cursor()
+  cursor.execute("SELECT COUNT(*) FROM Users;")
+  records = cursor.fetchall()
+  return {'count': records[0][0]}
+
+def getNews(req):
+  db = mysql.connect(host=db_host, database=db_name, user=db_user, passwd=db_pass)
+  cursor = db.cursor()
+  cursor.execute("SELECT * FROM News ORDER by id desc;")
+  records = cursor.fetchall()
+  return records
+
 if __name__ == '__main__':
   config = Configurator()
 
   config.add_route('signup', '/signup')
   config.add_view(signup, route_name='signup')
+
+  config.add_route('getUsers', 'getUsers')
+  config.add_view(getUsers, route_name='getUsers', renderer='json')
+
+  config.add_route('getNews', 'getNews')
+  config.add_view(getNews, route_name='getNews', renderer='json')
 
   app = config.make_wsgi_app()
   server = make_server('0.0.0.0', 5000, app)

@@ -27,6 +27,16 @@
       <p>Whether it's homework, quizzes, or presentation, Chatty Buddy's got you covered. Why bother spending time gathering materials to learn when you can be spending time learning? Let Chatty Buddy compile learning materials for you!</p>
     </aside>
     </section>
+  <h2>Product Spotlight</h2>
+  <section class='grid'>
+    <aside>
+      <h3><span id="title"></span></h3>
+      <p>
+        <span id="date"></span><br><br>
+        <span id="description"></span>
+      </p>
+    </aside>
+  </section>
 </div>
 
 <div id="CTA" class="tabcontent">
@@ -40,6 +50,15 @@
       <button>Sign me up!</button>
     </form>
   </div>
+  <aside>
+    <p>To date, we've had more than <span id="registered"></span> customers register for our new product announcements!</p>
+  </aside>
+  <aside>
+    <p>Our product is currently <span id="progress"></span>% ready for launch.</p>
+  </aside>
+
+
+
 </div>
 
 <div id="About" class="tabcontent">
@@ -232,7 +251,42 @@
   /*if the user clicks anywhere outside the select box,
   then close all select boxes:*/
   document.addEventListener("click", closeAllSelect);
+
 </script>
+<script>
+  function updateCount() {
+    fetch('/getUsers')
+    .then(res => res.json())
+    .then((out) => {
+      var counter = out['count'];
+      document.getElementById('registered').innerHTML = counter;
+    })
+    .catch(err => { throw err });
+    }
+  updateCount();
+  setInterval(function() {updateCount();}, 10000);
+</script>
+<script>
+  document.getElementById('progress').innerHTML = 70;
+</script>
+<script>
+  function updateNews() {
+    fetch('/getNews')
+    .then(res => res.json())
+    .then((out) => {
+      var title = out[0][1];
+      var date = out[0][2];
+      var description = out[0][3];
+      document.getElementById('title').innerHTML = title;
+      document.getElementById('date').innerHTML = date;
+      document.getElementById('description').innerHTML = description;
+    })
+    .catch(err => { throw err });
+    }
+  updateNews();
+  setInterval(function() {updateNews();}, 10000);
+</script>
+
 
 </body>
 </html>

@@ -1,9 +1,11 @@
 from wsgiref.simple_server import make_server
 from pyramid.config import Configurator
 from pyramid.renderers import render_to_response
+from pyramid.response import Response
 
 import requests
 import os
+import json
 
 REST_SERVER = os.environ['REST_SERVER'] #REST_SERVER is found in the docker-compose.yml file
 
@@ -26,6 +28,18 @@ def signUp(req):
   else:
     return render_to_response('templates/landing.html', {'books': "a"}, request=req)
 
+def getUsers(req):
+  get_user_response = requests.get(REST_SERVER + "/getUsers").json()
+  print('get_user_response: ', get_user_response)
+
+  return get_user_response
+
+def getNews(req):
+  get_news_response = requests.get(REST_SERVER + "/getNews").json()
+  print('get_news_response: ', get_news_response)
+
+  return get_news_response
+
 
 if __name__ == '__main__':
   config = Configurator()
@@ -40,6 +54,12 @@ if __name__ == '__main__':
   #Add a route to the home page - login page - using the endpoint: /signup
   config.add_route('v3', '/signup')
   config.add_view(signUp, route_name='v3')
+
+  config.add_route('v4', 'getUsers')
+  config.add_view(getUsers, route_name='v4', renderer='json', request_method='GET')
+
+  config.add_route('v5', 'getNews')
+  config.add_view(getNews, route_name='v5', renderer='json', request_method='GET')
 
   config.add_static_view(name='/', path='./templates', cache_max_age=3600) #expose the public folder for the CSS file
 
