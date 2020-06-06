@@ -5,6 +5,7 @@ import mysql.connector as mysql
 import os
 from dotenv import load_dotenv
 load_dotenv('credentials.env')
+from datetime import datetime
 
 db_user = os.environ['MYSQL_USER']
 db_pass = os.environ['MYSQL_PASSWORD']
@@ -25,7 +26,9 @@ try:
         id integer  AUTO_INCREMENT PRIMARY KEY,
         firstname   VARCHAR(30) NOT NULL,
         lastname    VARCHAR(30) NOT NULL,
-        email       VARCHAR(30) NOT NULL
+        email       VARCHAR(30) NOT NULL,
+        password    VARCHAR(30) NOT NULL,
+        created_at  TIMESTAMP
       );
     """)
     print("Users table created")
@@ -37,10 +40,8 @@ result = cursor.fetchall()
 print(result)
 
 # Insert Records
-query = "INSERT into Users (firstname, lastname, email) values (%s, %s, %s)"
-values = [
-  ('Po Hsiang','Huang','phh003@ucsd.edu'),
-]
+query = "insert into Users (firstname, lastname, email, password, created_at) values (%s, %s, %s, %s, %s)"
+values = ('po', 'huang', 'phh003@ucsd.edu', 'abc123', datetime.now())
 cursor.executemany(query, values)
 db.commit()
 

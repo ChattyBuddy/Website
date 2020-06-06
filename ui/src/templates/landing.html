@@ -1,292 +1,303 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Chatty Buddy</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chatty Buddy</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="tab">
+      <button class="tablinks" onclick="openTab(event, 'KVP')" id="defaultOpen">
+        Welcome
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'CTA')">
+        Pre-Register
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'About')">
+        About Us
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'Bot')">Beta</button>
+    </div>
 
-<div class="tab">
-  <button class="tablinks" onclick="openTab(event, 'KVP')" id="defaultOpen">Welcome</button>
-  <button class="tablinks" onclick="openTab(event, 'CTA')">Pre-Register</button>
-  <button class="tablinks" onclick="openTab(event, 'About')">About Us</button>
-  <button class="tablinks" onclick="openTab(event, 'Bot')">Beta</button>
-</div>
+    <div id="KVP" class="tabcontent">
+      <h1>Need a study buddy?</h1>
+      <h2>
+        Chatty Buddy makes your learning experience more<br /><b
+          ><i>FUN, INTERACTIVE, and EFFICIENT</i></b
+        >
+      </h2>
+      <section class="land">
+        <aside>
+          <h3>Get the information you need,<br />when you need it</h3>
+          <p>
+            Ask Chatty Buddy any question you would like about your course and
+            it would pull up that material in no time. No more browsing several
+            online posts or tutorials for a simple concept you forgot!
+          </p>
+        </aside>
+        <aside>
+          <h3>Work smarter,<br />not harder</h3>
+          <p>
+            Whether it's homework, quizzes, or presentation, Chatty Buddy's got
+            you covered. Why bother spending time gathering materials to learn
+            when you can be spending time learning? Let Chatty Buddy compile
+            learning materials for you!
+          </p>
+        </aside>
+      </section>
+      <h2>Product Spotlight</h2>
+      <section class="grid">
+        <aside>
+          <h3><span id="title0"></span></h3>
+          <p>
+            <span id="date0"></span><br /><br />
+            <span id="description0"></span>
+          </p>
+        </aside>
+        <aside>
+          <h3><span id="title1"></span></h3>
+          <p>
+            <span id="date1"></span><br /><br />
+            <span id="description1"></span>
+          </p>
+        </aside>
+      </section>
+    </div>
 
-<div id="KVP" class="tabcontent">
-  <h1>Need a study buddy?</h1>
-  <h2>Chatty Buddy makes your learning experience more<br><b><i>FUN, INTERACTIVE, and EFFICIENT</i></b></h2>
-    <section class='land'>
-    <aside>
-      <h3>Get the information you need,<br>when you need it</h3>
-      <p>Ask Chatty Buddy any question you would like about your course and it would pull up that material in no time. No more browsing several online posts or tutorials for a simple concept you forgot!</p>
-    </aside>
-    <aside>
-      <h3>Work smarter,<br>not harder</h3>
-      <p>Whether it's homework, quizzes, or presentation, Chatty Buddy's got you covered. Why bother spending time gathering materials to learn when you can be spending time learning? Let Chatty Buddy compile learning materials for you!</p>
-    </aside>
-    </section>
-  <h2>Product Spotlight</h2>
-  <section class='grid'>
-    <aside>
-      <h3><span id="title"></span></h3>
-      <p>
-        <span id="date"></span><br><br>
-        <span id="description"></span>
-      </p>
-    </aside>
-  </section>
-</div>
+    <div id="CTA" class="tabcontent">
+      <h1>Register Today</h1>
+      <h2>
+        To receive the latest update on the development of this state-of-art
+        study-aid chatbot. We will be surveying requested features and you can
+        help make <i>YOUR</i> learning experience better!
+      </h2>
+      <div class="form">
+        <form class="register-form" action="/signup" method="GET">
+          <input
+            type="text"
+            placeholder="First Name"
+            id="fname_id"
+            name="fname"
+          />
+          <input
+            type="text"
+            placeholder="Last Name"
+            id="lname_id"
+            name="lname"
+          />
+          <input type="text" placeholder="Email" id="email_id" name="email" />
+          <input type="text" placeholder="Password" id="pw_id" name="pw" />
+          <button>Sign me up!</button>
+        </form>
+      </div>
+      <aside>
+        <p>
+          To date, we've had more than <span id="registered"></span> customers
+          register for our new product announcements!
+        </p>
+      </aside>
+      <aside>
+        <p>
+          Our product is currently <span id="progress"></span>% ready for
+          launch.
+        </p>
+      </aside>
+    </div>
 
-<div id="CTA" class="tabcontent">
-  <h1>Register Today</h1>
-  <h2>To receive the latest update on the development of this state-of-art study-aid chatbot. We will be surveying requested features and you can help make <i>YOUR</i> learning experience better!</h2>
-  <div class="form">
-    <form class="register-form" action="/signup" method="GET">
-      <input type="text" placeholder="First Name" id="fname_id" name="fname"/>
-      <input type="text" placeholder="Last Name" id="lname_id" name="lname"/>
-      <input type="text" placeholder="Email" id="email_id" name="email"/>
-      <button>Sign me up!</button>
-    </form>
-  </div>
-  <aside>
-    <p>To date, we've had more than <span id="registered"></span> customers register for our new product announcements!</p>
-  </aside>
-  <aside>
-    <p>Our product is currently <span id="progress"></span>% ready for launch.</p>
-  </aside>
+    <div id="About" class="tabcontent">
+      <h1>Meet our team:</h1>
+      <h2>
+        We met in ECE 140B in UC San Diego and decided to revolutionize college
+        learning experience. After taking many many classes, we all agreed that
+        we felt like we were not learning in the most efficient way possible.
+        Therefore, we want to create something that can ensure everyone gets the
+        most out of their classes.
+      </h2>
+      <section class="grid">
+        <aside>
+          <h3>Po Hsiang Huang</h3>
+          <p>
+            <a href="https://www.linkedin.com/in/phh0716/" target="_blank">
+              <img
+                src="profile_pic/Po.png"
+                alt="Po"
+                width="300"
+                height="300"
+              /><br />
+            </a>
+            Cofounder<br /><br />
+            Po is a junior Electrical Engineer with a focus in Machine Learning
+            at UCSD. He has worked hard to build up his technical skills and
+            wants to apply them to help better people's lives. In his free time,
+            he likes to play board games, watch shows, and catch up on the sleep
+            he never gets.
+          </p>
+        </aside>
+        <aside>
+          <h3>Tommy Man</h3>
+          <p>
+            <a href="https://www.linkedin.com/in/phh0716/" target="_blank">
+              <img
+                src="profile_pic/Tommy.png"
+                alt="Tommy"
+                width="300"
+                height="300"
+              /><br />
+            </a>
+            Cofounder<br /><br />
+            Tommy is a junior Electrical Engineer with a focus in Machine
+            Learning at UCSD.In addition to interest in programming and
+            robotics, he also enjoys outdoor activities and watching sitcoms.
+          </p>
+        </aside>
+        <aside>
+          <h3>Jerry Chen</h3>
+          <p>
+            <a href="https://www.linkedin.com/in/phh0716/" target="_blank">
+              <img
+                src="profile_pic/Jerry.png"
+                alt="Jerry"
+                width="300"
+                height="300"
+              /><br />
+            </a>
+            Cofounder<br /><br />
+            Jerry is a senior Electrical Engineer with a Computer Systems and
+            Data Communications focus at UCSD. Aside from designing and writing
+            programs, and building circuits, he likes to play chess and run on
+            treadmills.
+          </p>
+        </aside>
+        <aside>
+          <h3>Ashwin Ganesh</h3>
+          <p>
+            <a href="https://www.linkedin.com/in/phh0716/" target="_blank">
+              <img
+                src="profile_pic/Ashwin.png"
+                alt="Ashwin"
+                width="300"
+                height="300"
+              /><br />
+            </a>
+            Cofounder<br /><br />
+            Ashwin is a senior Electrical Engineer with a Computer Design focus
+            at UCSD. Amidst solving interesting computer science challenges, he
+            enjoys playing basketball, snorkeling with leopard sharks and
+            learning to surf.
+          </p>
+        </aside>
+      </section>
+      <p class="email">Questions or concerns? Email chattybuddy@ucsd.edu</p>
+    </div>
 
+    <div id="Bot" class="tabcontent">
+      <section class="padding-responsive">
+        <h2>Login Below</h2>
 
+        {% if error %}
+        <p>{{ error }}</p>
+        {% endif %}
+        <div class="form">
+          <form method="POST" action="/post_login">
+            <input type="email" name="email" placeholder="Email" value="" />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value=""
+            />
+            <button class="btn medium pill">Login</button>
+          </form>
+        </div>
 
-</div>
+        <!-- <form method="POST" action="/post_login">
+          <section class="responsive_grid">
+            <div class="field">
+              <label> Email Address: &nbsp;</label>
+              <input type="email" name="email" value="" class="margin-top-lg" />
+            </div>
 
-<div id="About" class="tabcontent">
-  <h1>Meet our team:</h1>
-  <h2>We met in ECE 140B in UC San Diego and decided to revolutionize college learning experience. After taking many many classes, we all agreed that we felt like we were not learning in the most efficient way possible. Therefore, we want to create something that can ensure everyone gets the most out of their classes.</h2>
-  <section class='grid'>
-    <aside>
-      <h3>Po Hsiang Huang</h3>
-      <p>
-        <a href="https://www.linkedin.com/in/phh0716/" target="_blank">
-          <img src="profile_pic/Po.png" alt="Po" width="300" height="300"><br>
-        </a>
-        Cofounder<br><br>
-        Po is a junior Electrical Engineer with a focus in Machine Learning at UCSD. He has worked hard to build up his technical skills and wants to apply them to help better people's lives. In his free time, he likes to play board games, watch shows, and catch up on the sleep he never gets.
-      </p>
-    </aside>
-    <aside>
-      <h3>Tommy Man</h3>
-      <p>
-        <a href="https://www.linkedin.com/in/phh0716/" target="_blank">
-          <img src="profile_pic/Tommy.png" alt="Tommy" width="300" height="300"><br>
-        </a>
-        Cofounder<br><br>
-        Tommy is a junior Electrical Engineer with a focus in Machine Learning at UCSD.In addition to interest in programming and robotics, he also enjoys outdoor activities and watching sitcoms.
-      </p>
-    </aside>
-    <aside>
-      <h3>Jerry Chen</h3>
-      <p>
-        <a href="https://www.linkedin.com/in/phh0716/" target="_blank">
-          <img src="profile_pic/Jerry.png" alt="Jerry" width="300" height="300"><br>
-        </a>
-        Cofounder<br><br>
-        Jerry is a senior Electrical Engineer with a Computer Systems and Data Communications focus at UCSD. Aside from designing and writing programs, and building circuits, he likes to play chess and run on treadmills.
-      </p>
-    </aside>
-    <aside>
-      <h3>Ashwin Ganesh</h3>
-      <p>
-        <a href="https://www.linkedin.com/in/phh0716/" target="_blank">
-          <img src="profile_pic/Ashwin.png" alt="Ashwin" width="300" height="300"><br>
-        </a>
-        Cofounder<br><br>
-        Ashwin is a senior Electrical Engineer with a Computer Design focus at UCSD. Amidst solving interesting computer science challenges, he enjoys playing basketball, snorkeling with leopard sharks and learning to surf.
-      </p>
-    </aside>
-  </section>
-  <p class="email">Questions or concerns? Email chattybuddy@ucsd.edu</p>
-</div>
+            <div class="field">
+              <label> Password: &nbsp;</label>
+              <input
+                type="password"
+                name="password"
+                value=""
+                class="margin-top-lg"
+              />
+            </div>
+          </section>
 
-<div id="Bot" class="tabcontent">
-  <h1>Chat Messages</h1>
-  <div class="custom-select" style="width:300px;">
-    <select id="courses">
-      <option value="0">Select course:</option>
-      <option value="1">ECE 140B</option>
-      <option value="2">ECE 171A</option>
-      <option value="3">ECE 175B</option>
-      <option value="4">COGS 181</option>
-    </select>
-  </div>
+          <button class="btn medium pill">Login</button>
+        </form> -->
+      </section>
+    </div>
 
-  <div class="container darker">
-    <img src="profile_pic/Bot.png" alt="Chatbot" style="width:100%;">
-    <p>Hello Po! I am your Chatty Buddy! Let me know in the chat below how I can help you today.</p>
-    <span class="time-right">11:00</span>
-  </div>
-
-  <div class="container">
-    <img src="profile_pic/Po.png" alt="User" class="right" style="width:100%;">
-    <p>Hey, how are you doing?</p>
-    <span class="time-left">11:01</span>
-  </div>
-
-  <div class="container darker">
-    <img src="profile_pic/Bot.png" alt="Chatbot" style="width:100%;">
-    <p>I am doing fine thank you! How about yourself?</p>
-    <span class="time-right">11:02</span>
-  </div>
-
-  <button class="open-button" onclick="openForm()">Chat</button>
-  <div class="chat-popup" id="myForm">
-    <form action="/action_page.php" class="form-container">
-      <label for="msg"><b>Chat</b></label>
-      <textarea placeholder="Type message.." name="msg" required></textarea>
-      <button type="submit" class="btn">Send</button>
-      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-    </form>
-  </div>
-</div>
-
-<script>
-  // Navigate through each tab
-  function openTab(evt, tabName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
-  }
-
-  // Get the element with id="defaultOpen" and click on it
-  document.getElementById("defaultOpen").click();
-
-  // Chat interface
-  function openForm() {
-    document.getElementById("myForm").style.display = "block";
-  }
-
-  function closeForm() {
-    document.getElementById("myForm").style.display = "none";
-  }
-
-  // Select courses
-  var x, i, j, selElmnt, a, b, c;
-  /*look for any elements with the class "custom-select":*/
-  x = document.getElementsByClassName("custom-select");
-  for (i = 0; i < x.length; i++) {
-    selElmnt = x[i].getElementsByTagName("select")[0];
-    /*for each element, create a new DIV that will act as the selected item:*/
-    a = document.createElement("DIV");
-    a.setAttribute("class", "select-selected");
-    a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-    x[i].appendChild(a);
-    /*for each element, create a new DIV that will contain the option list:*/
-    b = document.createElement("DIV");
-    b.setAttribute("class", "select-items select-hide");
-    for (j = 1; j < selElmnt.length; j++) {
-      /*for each option in the original select element,
-      create a new DIV that will act as an option item:*/
-      c = document.createElement("DIV");
-      c.innerHTML = selElmnt.options[j].innerHTML;
-      c.addEventListener("click", function(e) {
-          /*when an item is clicked, update the original select box,
-          and the selected item:*/
-          var y, i, k, s, h;
-          s = this.parentNode.parentNode.getElementsByTagName("select")[0];
-          h = this.parentNode.previousSibling;
-          for (i = 0; i < s.length; i++) {
-            if (s.options[i].innerHTML == this.innerHTML) {
-              s.selectedIndex = i;
-              h.innerHTML = this.innerHTML;
-              y = this.parentNode.getElementsByClassName("same-as-selected");
-              for (k = 0; k < y.length; k++) {
-                y[k].removeAttribute("class");
-              }
-              this.setAttribute("class", "same-as-selected");
-              break;
-            }
-          }
-          h.click();
-      });
-      b.appendChild(c);
-    }
-    x[i].appendChild(b);
-    a.addEventListener("click", function(e) {
-        /*when the select box is clicked, close any other select boxes,
-        and open/close the current select box:*/
-        e.stopPropagation();
-        closeAllSelect(this);
-        this.nextSibling.classList.toggle("select-hide");
-        this.classList.toggle("select-arrow-active");
-      });
-  }
-  function closeAllSelect(elmnt) {
-    /*a function that will close all select boxes in the document,
-    except the current select box:*/
-    var x, y, i, arrNo = [];
-    x = document.getElementsByClassName("select-items");
-    y = document.getElementsByClassName("select-selected");
-    for (i = 0; i < y.length; i++) {
-      if (elmnt == y[i]) {
-        arrNo.push(i)
-      } else {
-        y[i].classList.remove("select-arrow-active");
+    <script>
+      // Navigate through each tab
+      function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
       }
-    }
-    for (i = 0; i < x.length; i++) {
-      if (arrNo.indexOf(i)) {
-        x[i].classList.add("select-hide");
+
+      // Get the element with id="defaultOpen" and click on it
+      document.getElementById("defaultOpen").click();
+    </script>
+    <script>
+      function updateCount() {
+        fetch("/getUsers")
+          .then((res) => res.json())
+          .then((out) => {
+            var counter = out["count"];
+            document.getElementById("registered").innerHTML = counter;
+          })
+          .catch((err) => {
+            throw err;
+          });
       }
-    }
-  }
-  /*if the user clicks anywhere outside the select box,
-  then close all select boxes:*/
-  document.addEventListener("click", closeAllSelect);
-
-</script>
-<script>
-  function updateCount() {
-    fetch('/getUsers')
-    .then(res => res.json())
-    .then((out) => {
-      var counter = out['count'];
-      document.getElementById('registered').innerHTML = counter;
-    })
-    .catch(err => { throw err });
-    }
-  updateCount();
-  setInterval(function() {updateCount();}, 10000);
-</script>
-<script>
-  document.getElementById('progress').innerHTML = 70;
-</script>
-<script>
-  function updateNews() {
-    fetch('/getNews')
-    .then(res => res.json())
-    .then((out) => {
-      var title = out[0][1];
-      var date = out[0][2];
-      var description = out[0][3];
-      document.getElementById('title').innerHTML = title;
-      document.getElementById('date').innerHTML = date;
-      document.getElementById('description').innerHTML = description;
-    })
-    .catch(err => { throw err });
-    }
-  updateNews();
-  setInterval(function() {updateNews();}, 10000);
-</script>
-
-
-</body>
+      updateCount();
+      setInterval(function () {
+        updateCount();
+      }, 10000);
+    </script>
+    <script>
+      document.getElementById("progress").innerHTML = 85;
+    </script>
+    <script>
+      function updateNews() {
+        fetch("/getNews")
+          .then((res) => res.json())
+          .then((out) => {
+            var title = out[0][1];
+            var date = out[0][2];
+            var description = out[0][3];
+            document.getElementById("title0").innerHTML = title;
+            document.getElementById("date0").innerHTML = date;
+            document.getElementById("description0").innerHTML = description;
+            var title = out[1][1];
+            var date = out[1][2];
+            var description = out[1][3];
+            document.getElementById("title1").innerHTML = title;
+            document.getElementById("date1").innerHTML = date;
+            document.getElementById("description1").innerHTML = description;
+          })
+          .catch((err) => {
+            throw err;
+          });
+      }
+      updateNews();
+      setInterval(function () {
+        updateNews();
+      }, 10000);
+    </script>
+  </body>
 </html>

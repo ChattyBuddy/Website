@@ -1,9 +1,12 @@
 from wsgiref.simple_server import make_server
 from pyramid.config import Configurator
+from pyramid.renderers import render_to_response
+from pyramid.httpexceptions import HTTPFound
+from pyramid.session import SignedCookieSessionFactory
 from pyramid.response import Response
+from datetime import datetime
 import json
 import time
-from datetime import datetime
 import mysql.connector as mysql
 import os
 
@@ -16,9 +19,11 @@ def signup(req):
   firstname = req.params.getall("firstname")[0]
   lastname = req.params.getall("lastname")[0]
   email = req.params.getall("email")[0]
+  password = req.params.getall("password")[0]
   assert isinstance(firstname, str)
   assert isinstance(lastname, str)
   assert isinstance(email, str)
+  assert isinstance(password, str)
 
   db = mysql.connect(host=db_host, database=db_name, user=db_user, passwd=db_pass)
   cursor = db.cursor()
@@ -35,9 +40,9 @@ def signup(req):
     return Response('ERROR')
   else:
     cursor.execute("""
-        INSERT INTO Users (firstname, lastname, email) 
-        VALUES ('%s', '%s', '%s');
-      """ % (firstname, lastname, email))
+        INSERT INTO Users (firstname, lastname, email, password) 
+        VALUES ('%s', '%s', '%s', '%s');
+      """ % (firstname, lastname, email, password))
     db.commit()
     print("SIGN UP SUCCESS!")
 
@@ -64,10 +69,10 @@ if __name__ == '__main__':
   config.add_route('signup', '/signup')
   config.add_view(signup, route_name='signup')
 
-  config.add_route('getUsers', 'getUsers')
+  config.add_route('getUsers', '/getUsers')
   config.add_view(getUsers, route_name='getUsers', renderer='json')
 
-  config.add_route('getNews', 'getNews')
+  config.add_route('getNews', '/getNews')
   config.add_view(getNews, route_name='getNews', renderer='json')
 
   app = config.make_wsgi_app()
